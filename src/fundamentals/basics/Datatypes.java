@@ -1,4 +1,4 @@
-package fundamentals;
+package fundamentals.basics;
 
 import com.sun.security.jgss.GSSUtil;
 

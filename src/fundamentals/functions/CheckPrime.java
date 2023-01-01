@@ -3,10 +3,7 @@ package fundamentals.functions;
 public class CheckPrime {
     public static void main(String[] args) {
         int n = 6;
-        boolean result = isPrimeReturn(n);
-        System.out.println(result);
-        result = isPrimeBreak(n);
-        System.out.println(result);
+        System.out.println(isPrime(47));
     }
 
     private static boolean isPrimeBreak(int n) {
@@ -29,5 +26,16 @@ public class CheckPrime {
             div++;
         }
         return true;
+    }
+
+    public static boolean isPrime(int x)
+    {
+        for(int i=2;i<x/2;i++)
+        {
+            if(x%i==0)
+                return false;
+        }
+        return true;
+
     }
 }

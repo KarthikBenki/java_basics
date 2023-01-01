@@ -20,7 +20,7 @@ public class InputOfArray {
         }
     }
 
-    private static void takeInput(Scanner scanner, int[] arr) {
+    public static void takeInput(Scanner scanner, int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = scanner.nextInt();
         }

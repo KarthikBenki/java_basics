@@ -1,4 +1,4 @@
-package fundamentals.array;
+package fundamentals.array.searchingandsorting;
 
 import java.util.Scanner;
 

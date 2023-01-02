@@ -20,6 +20,12 @@ public class InputOfArray {
         }
     }
 
+    public static void printArray(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
     public static void takeInput(Scanner scanner, int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = scanner.nextInt();

@@ -8,16 +8,22 @@ import static fundamentals.array.InputOfArray.takeInput;
 public class BinarySearch {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the length of array");
         int n = scanner.nextInt();
 
         int arr[] = new int[n];
 
+        System.out.println("Enter the element to find in array");
         int x = scanner.nextInt();
 
+        System.out.println("Enter array elements");
         takeInput(scanner, arr);
-        printArray(arr.length, arr);
 
-        System.out.println(binarySearch(arr, x));
+        System.out.println("printing array elements");
+        printArray(arr.length, arr);
+        System.out.println();
+
+        System.out.println(x+" found at index : "+binarySearch(arr, x));
     }
 
     private static int binarySearch(int[] arr, int x) {

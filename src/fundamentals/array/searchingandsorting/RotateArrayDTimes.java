@@ -30,6 +30,5 @@ public class RotateArrayDTimes {
         printArray(arr);
         rotate(arr,d);
         printArray(arr);
-
     }
 }

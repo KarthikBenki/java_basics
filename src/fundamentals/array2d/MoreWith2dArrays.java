@@ -18,9 +18,9 @@ public class MoreWith2dArrays {
         int arr1[][] = new int[4][];
 
         for (int i = 0; i < arr1.length; i++) {
-            arr1[i] = new int[i+2];//jagged array
+            arr1[i] = new int[i + 2];//jagged array
         }
 
         print2DArray(arr1);
-     }
+    }
 }

@@ -7,7 +7,7 @@ public class ReverseAString {
 
         Scanner scanner = new Scanner(System.in);
         String str = scanner.next();
-        String s = reverseString(str);
+        String s = reverseString1(str);
         System.out.println(s);
     }
 
@@ -15,6 +15,14 @@ public class ReverseAString {
         String reversedString = "";
         for (int i = str.length() - 1; i >= 0; i--) {
             reversedString += str.charAt(i);
+        }
+        return reversedString;
+    }
+
+    public static String reverseString1(String str) {
+        String reversedString = "";
+        for (int i = 0; i < str.length(); i++) {
+            reversedString = str.charAt(i) + reversedString;
         }
         return reversedString;
     }

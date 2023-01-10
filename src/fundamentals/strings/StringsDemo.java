@@ -18,5 +18,9 @@ public class StringsDemo {
         String a ="abcd";
         String b="abcda";
         System.out.println(a.compareTo(b));
+
+        System.out.println(str1.length());
+        System.out.println(str1.substring(12));
+        System.out.println(str1.substring(1,5).length());
     }
 }

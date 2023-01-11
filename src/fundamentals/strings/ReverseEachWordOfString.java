@@ -30,7 +30,7 @@ public class ReverseEachWordOfString {
     }
 
     public static void main(String[] args) {
-        String str = "abc def ghi jkl mno";
+        String str = "Always indent your code";
         String s = reverseEachWord(str);
         System.out.println(s);
     }

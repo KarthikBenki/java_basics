@@ -1,12 +1,14 @@
 package interfaces.functional;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.function.Supplier;
 
-class SupplierImpl implements Supplier<String> {
+class SupplierImpl implements Supplier<LocalDateTime> {
 
     @Override
-    public String get() {
-        return "Hello World";
+    public LocalDateTime get() {
+        return LocalDateTime.now();
     }
 }
 
@@ -14,10 +16,10 @@ class SupplierImpl implements Supplier<String> {
 public class SupplierDemo {
     public static void main(String[] args) {
         SupplierImpl supplier = new SupplierImpl();
-        String s = supplier.get();
-        System.out.println(s);
+        LocalDateTime localDateTime = supplier.get();
+        System.out.println(localDateTime);
 
-        Supplier<String> supp = () -> "Hello World";
+        Supplier<LocalTime> supp = () -> LocalTime.now();
         System.out.println(supp.get());
     }
 }

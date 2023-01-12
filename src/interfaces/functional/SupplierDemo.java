@@ -17,6 +17,7 @@ public class SupplierDemo {
         String s = supplier.get();
         System.out.println(s);
 
-
+        Supplier<String> supp = () -> "Hello World";
+        System.out.println(supp.get());
     }
 }

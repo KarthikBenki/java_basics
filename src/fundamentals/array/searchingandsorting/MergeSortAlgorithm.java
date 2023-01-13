@@ -1,7 +1,7 @@
 package fundamentals.array.searchingandsorting;
 
 
-import static fundamentals.array.InputOfArray.printArray;
+import static fundamentals.array.arraybasics.InputOfArray.printArray;
 
 public class MergeSortAlgorithm {
 

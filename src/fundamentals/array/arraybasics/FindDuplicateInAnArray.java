@@ -1,4 +1,4 @@
-package fundamentals.array;
+package fundamentals.array.arraybasics;
 
 public class FindDuplicateInAnArray {
     public static int duplicateNumber(int arr[]) {

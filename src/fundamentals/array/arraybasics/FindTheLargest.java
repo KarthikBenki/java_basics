@@ -1,8 +1,8 @@
-package fundamentals.array;
+package fundamentals.array.arraybasics;
 
 import java.util.Scanner;
 
-import static fundamentals.array.InputOfArray.takeInput;
+import static fundamentals.array.arraybasics.InputOfArray.takeInput;
 
 public class FindTheLargest {
     public static void main(String[] args) {

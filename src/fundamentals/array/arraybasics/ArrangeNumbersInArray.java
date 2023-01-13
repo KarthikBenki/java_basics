@@ -1,4 +1,4 @@
-package fundamentals.array;
+package fundamentals.array.arraybasics;
 
 import java.util.Scanner;
 

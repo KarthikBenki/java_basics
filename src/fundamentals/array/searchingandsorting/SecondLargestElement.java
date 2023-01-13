@@ -2,7 +2,7 @@ package fundamentals.array.searchingandsorting;
 
 import java.util.Scanner;
 
-import static fundamentals.array.InputOfArray.takeInput;
+import static fundamentals.array.arraybasics.InputOfArray.takeInput;
 
 public class SecondLargestElement {
     public static int secondLargestElement(int[] arr) {

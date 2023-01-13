@@ -2,7 +2,7 @@ package fundamentals.array.searchingandsorting;
 
 import java.util.Scanner;
 
-import static fundamentals.array.InputOfArray.takeInput;
+import static fundamentals.array.arraybasics.InputOfArray.takeInput;
 
 public class ArrayRotateCheck1 {
     public static int arrayRotateCheck(int[] arr) {

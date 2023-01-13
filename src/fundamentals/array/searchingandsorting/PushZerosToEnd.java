@@ -3,7 +3,7 @@ package fundamentals.array.searchingandsorting;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static fundamentals.array.InputOfArray.takeInput;
+import static fundamentals.array.arraybasics.InputOfArray.takeInput;
 
 public class PushZerosToEnd {
     public static void main(String[] args) {

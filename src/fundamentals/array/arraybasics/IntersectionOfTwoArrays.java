@@ -1,9 +1,9 @@
-package fundamentals.array;
+package fundamentals.array.arraybasics;
 
 import java.util.Scanner;
 
-import static fundamentals.array.InputOfArray.printArray;
-import static fundamentals.array.InputOfArray.takeInput;
+import static fundamentals.array.arraybasics.InputOfArray.printArray;
+import static fundamentals.array.arraybasics.InputOfArray.takeInput;
 
 public class IntersectionOfTwoArrays {
     public static void intersections(int arr1[], int arr2[]) {

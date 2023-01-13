@@ -1,9 +1,9 @@
-package fundamentals.array;
+package fundamentals.array.arraybasics;
 
 import java.util.Scanner;
 
-import static fundamentals.array.InputOfArray.printArray;
-import static fundamentals.array.InputOfArray.takeInput;
+import static fundamentals.array.arraybasics.InputOfArray.printArray;
+import static fundamentals.array.arraybasics.InputOfArray.takeInput;
 
 public class SwapAlternate {
     public static void swapAlternate(int arr[]) {

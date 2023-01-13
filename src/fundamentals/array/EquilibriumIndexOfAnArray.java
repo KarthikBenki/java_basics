@@ -14,6 +14,25 @@ public class EquilibriumIndexOfAnArray {
     }
 
     public static int arrayEquilibriumIndex(int[] arr) {
+        int leftSum = 0;
+        int rightSum = 0;
+        int totalSum = 0;
+        //to find a right sum
+        for (int i = 0; i < arr.length; i++) {
+            totalSum += arr[i];
+        }
+        //calculating right sum and equating with right sum if same return index
+        //else add ith element to left sum and increment i to next index
+
+        for (int i = 0; i < arr.length; i++) {
+            rightSum = totalSum - leftSum - arr[i];
+            if (leftSum == rightSum) return i;
+            leftSum+=arr[i];
+        }
+        return -1;
+    }
+
+    public static int arrayEquilibriumIndex1(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int leftSum = 0;
             int rightSum = 0;

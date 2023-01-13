@@ -34,7 +34,6 @@ public class IntersectionOfTwoArrays {
         printArray(arr2.length,arr2);
         System.out.println();
 
-
         intersections(arr1, arr2);
     }
 }

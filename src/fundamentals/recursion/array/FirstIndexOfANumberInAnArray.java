@@ -1,4 +1,4 @@
-package fundamentals.recursion;
+package fundamentals.recursion.array;
 
 public class FirstIndexOfANumberInAnArray {
 

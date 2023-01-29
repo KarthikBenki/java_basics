@@ -17,6 +17,5 @@ public class ReplacePi {
             return s.charAt(0) + smallOutput;
         }
 
-
     }
 }

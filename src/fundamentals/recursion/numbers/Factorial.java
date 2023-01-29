@@ -1,4 +1,4 @@
-package fundamentals.recursion;
+package fundamentals.recursion.numbers;
 
 public class Factorial {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package fundamentals.recursion;
+package fundamentals.recursion.numbers;
 
 import java.util.Scanner;
 

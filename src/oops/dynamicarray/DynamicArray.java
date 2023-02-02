@@ -11,14 +11,18 @@ public class DynamicArray {
 
     public void add(int value) {
         if (nextElementIndex == data.length) {
-            int temp[] = data;
-            data = new int[temp.length * 2];
-
-            for (int i = 0; i < temp.length; i++) {
-                data[i] = temp[i];
-            }
+            doubleTheCapacity();
         }
         data[nextElementIndex++] = value;
+    }
+
+    private void doubleTheCapacity() {
+        int temp[] = data;
+        data = new int[temp.length * 2];
+
+        for (int i = 0; i < temp.length; i++) {
+            data[i] = temp[i];
+        }
     }
 
     public int size() {
@@ -45,8 +49,9 @@ public class DynamicArray {
         }
     }
 
-    public void removeLast() {
-        data[nextElementIndex - 1] = 0;
+    public int removeLast() {
+        int temp = data[nextElementIndex - 1];
         nextElementIndex--;
+        return temp;
     }
 }

@@ -1,4 +1,4 @@
-package fundamentals.recursion;
+package recursion;
 
 public class RecurssionBasics {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package fundamentals.recursion.numbers;
+package recursion.numbers;
 
 public class PrintNNaturalNumbers {
     public static void main(String[] args) {

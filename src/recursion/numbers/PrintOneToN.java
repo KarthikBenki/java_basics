@@ -1,4 +1,4 @@
-package fundamentals.recursion.numbers;
+package recursion.numbers;
 
 public class PrintOneToN {
     static void printNToOne(int i,int n){

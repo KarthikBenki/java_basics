@@ -1,4 +1,4 @@
-package fundamentals.recursion.array;
+package recursion.array;
 
 public class LastIndexOfANumberInAnArray {
     public static void main(String[] args) {

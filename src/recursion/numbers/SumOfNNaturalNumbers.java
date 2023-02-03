@@ -1,4 +1,4 @@
-package fundamentals.recursion.numbers;
+package recursion.numbers;
 
 public class SumOfNNaturalNumbers {
     public static void main(String[] args) {

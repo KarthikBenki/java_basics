@@ -1,4 +1,4 @@
-package fundamentals.recursion.array;
+package recursion.array;
 
 public class SplitArray {
     public static boolean splitArray(int input[]) {

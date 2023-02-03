@@ -1,4 +1,4 @@
-package fundamentals.recursion.array;
+package recursion.array;
 
 import java.util.Random;
 

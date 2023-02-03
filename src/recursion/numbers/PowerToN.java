@@ -1,4 +1,4 @@
-package fundamentals.recursion.numbers;
+package recursion.numbers;
 
 public class PowerToN {
     public static int power(int x, int n) {

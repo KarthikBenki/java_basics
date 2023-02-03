@@ -1,10 +1,10 @@
-package fundamentals.recursion.array;
+package recursion.array;
 
 import java.util.Random;
 
 import static fundamentals.array.arraybasics.InputOfArray.printArray;
 
-public class QuickSort {
+public class QuickSortFirstIndex {
     public static void main(String[] args) {
         Random random = new Random();
         int[] numbers = new int[10];
@@ -26,39 +26,37 @@ public class QuickSort {
         quickSort(input, 0, input.length - 1);
     }
 
-    public static void quickSort(int[] input, int si, int ei) {
+    private static void quickSort(int[] input, int startIndex, int endIndex) {
+        if (startIndex >= endIndex) return;
 
-        if (si >= ei) return;
+        int pivot = input[startIndex];
+        swap(input,startIndex,endIndex);
 
-        int pivotIndex = new Random().nextInt(ei - si) + si;
-        int pivot = input[pivotIndex];
-        swap(input, pivotIndex, ei);
+        int leftPointer = partition(input, startIndex, endIndex, pivot);
 
-        int leftPointer = partition(input, si, ei, pivot);
-
-        quickSort(input, si, leftPointer - 1);
-        quickSort(input, leftPointer + 1, ei);
+        quickSort(input, startIndex, leftPointer - 1);
+        quickSort(input, leftPointer + 1, endIndex);
     }
 
-    private static int partition(int[] input, int si, int ei, int pivot) {
-        int leftPointer = si;
-        int rightPointer = ei;
+    private static int partition(int[] input, int startIndex, int endIndex, int pivot) {
+        int leftPointer = startIndex;
+        int rightPointer = endIndex;
 
         while (leftPointer < rightPointer) {
             while (input[leftPointer] <= pivot && leftPointer < rightPointer)
                 leftPointer++;
             while (input[rightPointer] >= pivot && leftPointer < rightPointer)
                 rightPointer--;
-            swap(input, leftPointer, rightPointer);
 
+            swap(input, leftPointer, rightPointer);
         }
-        swap(input, leftPointer, ei);
+        swap(input, leftPointer, endIndex);
         return leftPointer;
     }
 
-    public static void swap(int array[], int index1, int index2) {
-        int temp = array[index1];
-        array[index1] = array[index2];
-        array[index2] = temp;
+    private static void swap(int[] input, int startPoint, int endPoint) {
+        int temp = input[startPoint];
+        input[startPoint] = input[endPoint];
+        input[endPoint] = temp;
     }
 }

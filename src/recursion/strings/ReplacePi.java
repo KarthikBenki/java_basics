@@ -1,4 +1,4 @@
-package fundamentals.recursion.strings;
+package recursion.strings;
 
 public class ReplacePi {
     public static void main(String[] args) {

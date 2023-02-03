@@ -30,12 +30,16 @@ public class DynamicArray {
     }
 
     public int get(int index) {
-        if (index >= nextElementIndex) throw new IllegalArgumentException("Index out of bound");
+        if (index >= nextElementIndex) return 0;
         return data[index];
     }
 
     public void set(int index, int value) {
-        if (index>=nextElementIndex) throw new  IllegalArgumentException("Index out of bound");
+        if (index>=nextElementIndex) {
+            for (int i = nextElementIndex; i <= index; i++) {
+                this.add(0);
+            }
+        }
         data[index] = value;
     }
 

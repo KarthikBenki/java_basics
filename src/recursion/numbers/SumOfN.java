@@ -2,12 +2,12 @@ package recursion.numbers;
 
 public class SumOfN {
     public static void main(String[] args) {
-        int sum = 0;
+        int sum = 1;
         int n = 4;
-        sum = sumOfNParameter(n, sum);
+        sum = factorial_Parameter(n, sum);
         System.out.println("sum from parameter "  + sum);
-        sum = sumOfNFunctional(n);
-        System.out.println("sum from Functional " + sum);
+//        sum = sumOfNFunctional(n);
+//        System.out.println("sum from Functional " + sum);
     }
 
     private static int sumOfNFunctional(int n) {
@@ -18,5 +18,10 @@ public class SumOfN {
     private static int sumOfNParameter(int n, int sum) {
         if (n < 1) return sum;
         return sumOfNParameter(n - 1, sum + n);
+    }
+
+    private static int factorial_Parameter(int n, int prod) {
+        if (n < 1) return prod;
+        return factorial_Parameter(n - 1, prod * n);
     }
 }

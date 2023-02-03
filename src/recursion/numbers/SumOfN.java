@@ -4,8 +4,8 @@ public class SumOfN {
     public static void main(String[] args) {
         int sum = 1;
         int n = 4;
-        sum = factorial_Parameter(n, sum);
-        System.out.println("sum from parameter "  + sum);
+        sum = factorial_Functional(n);
+        System.out.println("factorial from functional " + sum);
 //        sum = sumOfNFunctional(n);
 //        System.out.println("sum from Functional " + sum);
     }
@@ -13,6 +13,11 @@ public class SumOfN {
     private static int sumOfNFunctional(int n) {
         if (n == 0) return 0;
         return n + sumOfNFunctional(n - 1);
+    }
+
+    private static int factorial_Functional(int n) {
+        if (n == 0) return 1;
+        return n * sumOfNFunctional(n - 1);
     }
 
     private static int sumOfNParameter(int n, int sum) {

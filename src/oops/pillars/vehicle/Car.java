@@ -1,12 +1,14 @@
 package oops.pillars.vehicle;
 
-public class Car extends Vehicle {
+public abstract class Car extends Vehicle {
     public Car() {
         System.out.println("Cars constructor");
     }
 
     @Override
-    boolean isMotorized() {
+    public boolean isMotorized() {
         return true;
     }
+
+
 }

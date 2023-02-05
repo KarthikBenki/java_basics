@@ -20,6 +20,8 @@ public abstract class Vehicle {
         return color;
     }
 
-    abstract boolean isMotorized();
+    public abstract boolean isMotorized();
+
+   public abstract String getCompany();
 }
 

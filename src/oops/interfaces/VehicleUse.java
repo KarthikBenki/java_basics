@@ -6,9 +6,6 @@ public class VehicleUse {
 
         VehicleInterface vi;
 
-       vi = new Vehicle();
-
-       vi.getCompany();
-       v.print();
+        v.print();
     }
 }

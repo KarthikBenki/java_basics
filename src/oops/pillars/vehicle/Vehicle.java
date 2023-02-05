@@ -1,6 +1,6 @@
-package oops.pillars;
+package oops.pillars.vehicle;
 
-public class Vehicle {
+public abstract class Vehicle {
     private String color;
     protected int maxSpeed;
 
@@ -19,5 +19,7 @@ public class Vehicle {
     public String getColor() {
         return color;
     }
+
+    abstract boolean isMotorized();
 }
 

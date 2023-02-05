@@ -9,11 +9,14 @@ public class ExceptionDemo {
     }
 
     private static void devideByZero(int numerator, int denominator)  {
-        if (denominator == 0) try {
-            throw new DevideByZeroException("Dont use zero in the denominator");
-        } catch (DevideByZeroException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println(numerator/denominator);
-    }
+       if (denominator == 0)
+           try {
+               throw new DevideByZeroException("denominator must not be zero");
+           } catch (DevideByZeroException ex) {
+               throw new RuntimeException(ex);
+           }finally {
+               System.out.println("Finally block excecuted");
+           }
+       }
+
 }

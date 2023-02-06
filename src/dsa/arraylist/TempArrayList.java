@@ -13,7 +13,7 @@ public class TempArrayList {
 
         System.out.println(list.get(2));
 
-        list.stream().forEach(a -> System.out.print(a + " "));
+        list.forEach(a -> System.out.print(a + " "));
 
 
 

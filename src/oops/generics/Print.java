@@ -9,6 +9,13 @@ public class Print {
         System.out.println();
     }
 
+    public static <T extends PrintInterface>void printArray(T[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+           arr[i].print();
+        }
+        System.out.println();
+    }
+
 
 
     public static void main(String[] args) {
@@ -26,5 +33,11 @@ public class Print {
             pArr[i] = new Pair<>(10+i,20+i);
         }
         printArray(pArr);
+
+        Student[] Student = new Student[5];
+        for (int i = 0; i < Student.length; i++) {
+            Student[i] = new Student(i+1);
+        }
+        printArray(Student);
     }
 }

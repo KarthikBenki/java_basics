@@ -1,12 +1,17 @@
 package oops.generics;
 
-public class Pair<T> {
+public class Pair<T> implements PrintInterface {
     private T first;
     private T second;
 
     public Pair(T first, T second) {
         this.first = first;
         this.second = second;
+    }
+
+    @Override
+    public void print(){
+        System.out.print("("+first+" , "+second+")"+" ");
     }
 
     public T getFirst() {

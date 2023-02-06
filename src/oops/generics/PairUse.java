@@ -16,5 +16,10 @@ public class PairUse {
         Pair<Vehicle> vehiclePair = new Pair<>(new Vehicle(), new Vehicle());
         System.out.println(vehiclePair.getFirst() + " " + vehiclePair.getSecond());
 
+        //generics of multiple types
+
+        Pair1<String,Integer> pair1 = new Pair1<>("one",1);
+        System.out.println(pair1.getFirst() + " " + pair1.getSecond());
+
     }
 }

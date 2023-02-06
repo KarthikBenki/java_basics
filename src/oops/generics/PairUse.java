@@ -18,8 +18,29 @@ public class PairUse {
 
         //generics of multiple types
 
-        Pair1<String,Integer> pair1 = new Pair1<>("one",1);
+        Pair1<String, Integer> pair1 = new Pair1<>("one", 1);
         System.out.println(pair1.getFirst() + " " + pair1.getSecond());
+
+        //chained generics method
+
+        Pair1<String, Integer> innerPair = new Pair1<>("one", 1);
+        Pair1<Pair1<String, Integer>, String> pp = new Pair1<>(innerPair, "one");
+        System.out.println(pp.getFirst() + " " + pp.getSecond());
+
+        System.out.println(pp.getSecond());
+
+        Pair1<String, Integer> first = pp.getFirst();
+
+        System.out.println(first.getFirst()+" "+" both are same  "+innerPair.getFirst());
+
+        System.out.println(innerPair+" "+first);
+
+        String first1 = pp.getFirst().getFirst();
+        System.out.println(first1+ "  in inner pair");
+
+        Integer second = pp.getFirst().getSecond();
+        System.out.println(second +" in inner pair");
+
 
     }
 }

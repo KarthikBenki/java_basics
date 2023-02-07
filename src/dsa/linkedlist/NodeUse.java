@@ -1,5 +1,7 @@
 package dsa.linkedlist;
 
+import java.util.Scanner;
+
 public class NodeUse {
     public static Node<Integer> createLinkedList() {
         Node<Integer> n1 = new Node<>(10);
@@ -14,39 +16,53 @@ public class NodeUse {
     }
 
     public static void main(String[] args) {
-        Node<Integer> head = createLinkedList();
 
+        Node<Integer> head = takeInput();
         printLinkedList(head);
-        increment(head);
-        printLinkedList(head);
-        int length = length(head);
-        System.out.println(length);
+
 
     }
 
     private static void increment(Node<Integer> head) {
         Node<Integer> temp = head;
-        while(temp!=null){
+        while (temp != null) {
             temp.data++;
-            temp=temp.next;
+            temp = temp.next;
         }
     }
 
-    public static int length(Node<Integer> head){
+    public static Node<Integer> takeInput() {
+        Scanner scanner = new Scanner(System.in);
+        int data = scanner.nextInt();
+        Node<Integer> head = null;
+        while (data != -1) {
+            Node<Integer> currentNode = new Node<>(data);
+            if (head == null) head = currentNode;
+            else {
+                Node<Integer> temp = head;
+                while (temp.next != null) temp = temp.next;
+                temp.next = currentNode;
+            }
+            data = scanner.nextInt();
+        }
+        return head;
+    }
+
+    public static int length(Node<Integer> head) {
         Node<Integer> temp = head;
         int count = 0;
-        while (temp!=null){
+        while (temp != null) {
             count++;
-            temp=temp.next;
+            temp = temp.next;
         }
         return count;
     }
 
     private static void printLinkedList(Node<Integer> linkedList) {
         Node<Integer> temp = linkedList;
-        while (temp!=null){
-            System.out.print(temp.data+" ");
-            temp=temp.next;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
         }
         System.out.println();
     }

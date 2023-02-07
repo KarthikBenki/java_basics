@@ -19,6 +19,8 @@ public class NodeUse {
         printLinkedList(head);
         increment(head);
         printLinkedList(head);
+        int length = length(head);
+        System.out.println(length);
 
     }
 
@@ -28,6 +30,16 @@ public class NodeUse {
             temp.data++;
             temp=temp.next;
         }
+    }
+
+    public static int length(Node<Integer> head){
+        Node<Integer> temp = head;
+        int count = 0;
+        while (temp!=null){
+            count++;
+            temp=temp.next;
+        }
+        return count;
     }
 
     private static void printLinkedList(Node<Integer> linkedList) {

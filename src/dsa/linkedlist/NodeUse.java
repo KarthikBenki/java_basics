@@ -20,14 +20,20 @@ public class NodeUse {
         Node<Integer> head = createLinkedList();
         printLinkedList(head);
         Node<Integer> newNode = new Node<>(50);
-        insert(head,newNode,3);
+        head = insert(head, newNode, 1);
         printLinkedList(head);
 
 
     }
 
-    public static void insert(Node<Integer> head, Node<Integer> newNode, int pos) {
-        if (pos >= length(head)) return;
+    public static Node<Integer> insert(Node<Integer> head, Node<Integer> newNode, int pos) {
+        if (pos >= length(head)) return head;
+
+        if (pos == 0) {
+            newNode.next = head;
+            head = newNode;
+            return head;
+        }
 
         int index = 0;
         Node<Integer> temp = head;
@@ -38,6 +44,8 @@ public class NodeUse {
         }
         newNode.next = temp.next;
         temp.next = newNode;
+
+        return head;
     }
 
     private static void increment(Node<Integer> head) {

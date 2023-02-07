@@ -17,7 +17,7 @@ public class NodeUse {
 
     public static void main(String[] args) {
 
-        Node<Integer> head = takeInput();
+        Node<Integer> head = takeInput1();
         printLinkedList(head);
 
 
@@ -43,6 +43,24 @@ public class NodeUse {
                 while (temp.next != null) temp = temp.next;
                 temp.next = currentNode;
             }
+            data = scanner.nextInt();
+        }
+        return head;
+    }
+
+
+    public static Node<Integer> takeInput1() {
+        Node<Integer> head = null;
+        Scanner scanner = new Scanner(System.in);
+        int data = scanner.nextInt();
+        if (data == -1) return head;
+        head = new Node<>(data);
+        Node<Integer> temp = head;
+        data = scanner.nextInt();
+        while (data != -1) {
+            Node<Integer> newNode = new Node<>(data);
+            temp.next = newNode;
+            temp = temp.next;
             data = scanner.nextInt();
         }
         return head;

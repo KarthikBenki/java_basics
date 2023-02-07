@@ -7,4 +7,8 @@ public class Node<T> {
     public Node(T data) {
         this.data = data;
     }
+
+    public void add(Node<T> that) {
+        this.next = that;
+    }
 }

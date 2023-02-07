@@ -17,7 +17,17 @@ public class NodeUse {
         Node<Integer> head = createLinkedList();
 
         printLinkedList(head);
+        increment(head);
+        printLinkedList(head);
 
+    }
+
+    private static void increment(Node<Integer> head) {
+        Node<Integer> temp = head;
+        while(temp!=null){
+            temp.data++;
+            temp=temp.next;
+        }
     }
 
     private static void printLinkedList(Node<Integer> linkedList) {

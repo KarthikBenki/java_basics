@@ -20,11 +20,70 @@ public class NodeUse {
         LinkedListNode<Integer> head = takeInput1();
         printLinkedList(head);
 
-        head = appendLastNToFirst(head, 3);
+        head = removeDuplicates1(head);
+
         printLinkedList(head);
 
 
     }
+
+    public static LinkedListNode<Integer> removeDuplicates1(LinkedListNode<Integer> head) {
+
+        LinkedListNode<Integer> curr = head;
+
+        while (curr != null) {
+            LinkedListNode<Integer> temp = curr;
+
+            while (temp != null && temp.data == curr.data) {
+                temp = temp.next;
+            }
+            curr.next = temp;
+            curr = curr.next;
+        }
+        return head;
+    }
+    public static LinkedListNode<Integer> removeDuplicates2(LinkedListNode<Integer> head) {
+        //Your code goes here
+
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        LinkedListNode<Integer> t1 = head;
+        LinkedListNode<Integer> t2 = head.next;
+
+
+        while( t2 != null){
+            if(t1.data.equals(t2.data)){
+                t2 = t2.next;
+            }
+            else{
+                t1.next = t2;
+                t1=t2;
+
+            }
+        }
+        t1.next = null;
+        return head;
+    }
+
+    public static LinkedListNode<Integer> removeDuplicates(LinkedListNode<Integer> head) {
+
+        if (head == null || head.next == null) return head;
+        LinkedListNode<Integer> temp = head;
+
+        while (temp != null) {
+
+            while (temp.next != null && temp.data == temp.next.data) {
+                temp.next = temp.next.next;
+            }
+
+            temp = temp.next;
+        }
+
+        return head;
+    }
+
 
     public static LinkedListNode<Integer> appendLastNToFirst(LinkedListNode<Integer> head, int n) {
         //12345
@@ -48,6 +107,34 @@ public class NodeUse {
 
             count++;
         }
+
+        return head;
+    }
+
+    public static LinkedListNode<Integer> appendLastNToFirst1(LinkedListNode<Integer> head, int n) {
+        //12345
+        //3
+        //34512
+
+        LinkedListNode<Integer> temp = head;
+        int newLength = length(head) - n;
+
+        int index = 0;
+
+        while (index < newLength - 1) {
+            temp = temp.next;
+            index++;
+        }
+
+        LinkedListNode<Integer> newNode = temp.next;
+
+        temp.next = null;
+        temp = newNode;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = head;
+        head = newNode;
 
         return head;
     }

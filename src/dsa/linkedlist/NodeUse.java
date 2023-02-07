@@ -17,10 +17,27 @@ public class NodeUse {
 
     public static void main(String[] args) {
 
-        Node<Integer> head = takeInput1();
+        Node<Integer> head = createLinkedList();
+        printLinkedList(head);
+        Node<Integer> newNode = new Node<>(50);
+        insert(head,newNode,3);
         printLinkedList(head);
 
 
+    }
+
+    public static void insert(Node<Integer> head, Node<Integer> newNode, int pos) {
+        if (pos >= length(head)) return;
+
+        int index = 0;
+        Node<Integer> temp = head;
+
+        while (index != pos - 1) {
+            temp = temp.next;
+            index++;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
     }
 
     private static void increment(Node<Integer> head) {

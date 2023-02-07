@@ -21,10 +21,11 @@ public class NodeUse {
     }
 
     private static void printLinkedList(Node<Integer> linkedList) {
-        while (linkedList.next != null) {
-            System.out.print(linkedList.data + " ");
-            linkedList = linkedList.next;
+        Node<Integer> temp = linkedList;
+        while (temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
         }
-        System.out.println(linkedList.data);
+        System.out.println();
     }
 }

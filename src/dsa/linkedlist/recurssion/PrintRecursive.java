@@ -11,11 +11,11 @@ public class PrintRecursive {
     }
 
     private static void printRecursive(LinkedListNode<Integer> head) {
-        if (head == null) return;
+        if (head == null) return;//base case
 
-        System.out.print(head.data+" ");
+        System.out.print(head.data+" ");//print first data
 
-        printRecursive(head.next);
+        printRecursive(head.next);//call recursion
 
     }
 }

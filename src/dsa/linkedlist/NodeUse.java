@@ -42,10 +42,11 @@ public class NodeUse {
         }
         return head;
     }
+
     public static LinkedListNode<Integer> removeDuplicates2(LinkedListNode<Integer> head) {
         //Your code goes here
 
-        if(head == null || head.next == null){
+        if (head == null || head.next == null) {
             return head;
         }
 
@@ -53,13 +54,12 @@ public class NodeUse {
         LinkedListNode<Integer> t2 = head.next;
 
 
-        while( t2 != null){
-            if(t1.data.equals(t2.data)){
+        while (t2 != null) {
+            if (t1.data.equals(t2.data)) {
                 t2 = t2.next;
-            }
-            else{
+            } else {
                 t1.next = t2;
-                t1=t2;
+                t1 = t2;
 
             }
         }

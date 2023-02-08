@@ -8,6 +8,17 @@ public class PrintRecursive {
     public static void main(String[] args) {
         LinkedListNode<Integer> head = NodeUse.takeInput1();
         printRecursive(head);
+        System.out.println();
+        printReverseRecursive(head);
+    }
+
+    private static void printReverseRecursive(LinkedListNode<Integer> head) {
+        if (head == null) return;//base case
+
+        printReverseRecursive(head.next);//call recursion
+
+        System.out.print(head.data+" ");//print first data
+
     }
 
     private static void printRecursive(LinkedListNode<Integer> head) {

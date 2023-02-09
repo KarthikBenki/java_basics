@@ -9,11 +9,50 @@ public class RecursiveNodeUse {
 
     public static void main(String[] args) {
         LinkedListNode<Integer> head = NodeUse.takeInput1();
-        Scanner scanner = new Scanner(System.in);
-        head = insertNode(head, 5, 20);
+        head = reverseLinkedListRec1(head);
         printRecursive(head);
         System.out.println();
 //        printReverseRecursive(head);
+    }
+
+    public static LinkedListNode<Integer> reverseLinkedListRec(LinkedListNode<Integer> head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        LinkedListNode<Integer> newNode = reverseLinkedListRec(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newNode;
+
+    }
+
+    public static LinkedListNode<Integer> reverseLinkedListRec1(LinkedListNode<Integer> head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        LinkedListNode<Integer> newNode = reverseLinkedListRec1(head.next);
+        LinkedListNode<Integer> tail = newNode;
+        while (tail.next != null) {
+            tail = tail.next;
+        }
+        tail.next = head;
+        head.next = null;
+        return newNode;
+    }
+
+    public static LinkedListNode<Integer> deleteNodeRec(LinkedListNode<Integer> head, int pos) {
+
+        if (head == null && pos == 0) return null;
+        if (pos == 0) {
+            return head.next;
+        }
+
+        if (head != null)
+            head.next = deleteNodeRec(head.next, pos - 1);
+
+        return head;
     }
 
     private static LinkedListNode<Integer> insertNode(LinkedListNode<Integer> head, int pos, int data) {

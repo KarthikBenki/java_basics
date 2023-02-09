@@ -8,10 +8,28 @@ public class RecursiveNodeUse {
 
     public static void main(String[] args) {
         LinkedListNode<Integer> head = NodeUse.takeInput1();
-        head = reverseLinkedListRec2(head);
-        printRecursive(head);
+        LinkedListNode<Integer> listNode = midPoint(head);
+        printRecursive(listNode);
         System.out.println();
 //        printReverseRecursive(head);
+    }
+
+    public static LinkedListNode<Integer> midPoint(LinkedListNode<Integer> head) {
+        //Your code goes here
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        LinkedListNode<Integer> slow = head;
+        LinkedListNode<Integer> fast = head;
+
+        while (fast.next!=null && fast.next.next!=null ) {
+            fast = fast.next.next;
+            slow  = slow.next;
+        }
+
+        return slow;
+
     }
 
     public static LinkedListNode<Integer> reverseLinkedListRec(LinkedListNode<Integer> head) {

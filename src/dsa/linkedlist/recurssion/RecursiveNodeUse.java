@@ -3,13 +3,12 @@ package dsa.linkedlist.recurssion;
 import dsa.linkedlist.LinkedListNode;
 import dsa.linkedlist.NodeUse;
 
-import java.util.Scanner;
 
 public class RecursiveNodeUse {
 
     public static void main(String[] args) {
         LinkedListNode<Integer> head = NodeUse.takeInput1();
-        head = reverseLinkedListRec1(head);
+        head = reverseLinkedListRec2(head);
         printRecursive(head);
         System.out.println();
 //        printReverseRecursive(head);
@@ -40,6 +39,32 @@ public class RecursiveNodeUse {
         tail.next = head;
         head.next = null;
         return newNode;
+    }
+
+    public static LinkedListNode<Integer> reverseLinkedListRec2(LinkedListNode<Integer> head) {
+        DoubleNode doubleNode = reverseLinkedListRec3(head);
+        return doubleNode.head;
+    }
+
+    private static DoubleNode reverseLinkedListRec3(LinkedListNode<Integer> head) {
+        DoubleNode ans;
+        if (head == null || head.next == null) {
+            ans = new DoubleNode(head, head);
+            return ans;
+        }
+
+        DoubleNode smallAns = reverseLinkedListRec3(head.next);
+
+        smallAns.tail.next = head;
+        head.next = null;
+
+         ans = new DoubleNode();
+        ans.head = smallAns.head;
+        ans.tail = head;
+
+        return  ans;
+
+
     }
 
     public static LinkedListNode<Integer> deleteNodeRec(LinkedListNode<Integer> head, int pos) {
@@ -93,4 +118,17 @@ public class RecursiveNodeUse {
     }
 
 
+}
+
+class DoubleNode {
+    LinkedListNode<Integer> head;
+    LinkedListNode<Integer> tail;
+
+    public DoubleNode() {
+    }
+
+    public DoubleNode(LinkedListNode<Integer> head, LinkedListNode<Integer> tail) {
+        this.head = head;
+        this.tail = tail;
+    }
 }

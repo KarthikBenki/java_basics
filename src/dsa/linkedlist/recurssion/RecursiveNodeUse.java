@@ -7,12 +7,54 @@ import dsa.linkedlist.NodeUse;
 public class RecursiveNodeUse {
 
     public static void main(String[] args) {
-        LinkedListNode<Integer> head = NodeUse.takeInput1();
-        LinkedListNode<Integer> listNode = midPoint(head);
-        printRecursive(listNode);
-        System.out.println();
+        LinkedListNode<Integer> head1 = NodeUse.takeInput1();
+        LinkedListNode<Integer> head2 = NodeUse.takeInput1();
+
+
+        LinkedListNode<Integer> head = mergeTwoSortedLinkedLists(head1, head2);
+        printRecursive(head);
 //        printReverseRecursive(head);
     }
+
+    public static LinkedListNode<Integer> mergeTwoSortedLinkedLists(LinkedListNode<Integer> head1, LinkedListNode<Integer> head2) {
+
+        if (head1 == null) return head2;
+        if (head2 == null) return head1;
+        if (head1 == null && head2 == null) return  null;
+
+        LinkedListNode<Integer> head, tail;
+        if (head1.data < head2.data) {
+            head = head1;
+            tail = head1;
+            head1 = head1.next;
+        } else {
+            head = head2;
+            tail = head2;
+            head2 = head2.next;
+        }
+
+        while (head1 != null && head2 != null) {
+            if (head1.data <= head2.data) {
+                tail.next = head1;
+                tail = tail.next;
+                head1 = head1.next;
+            }
+            else {
+                tail.next = head2;
+                tail = tail.next;
+                head2 = head2.next;
+            }
+        }
+
+        if (head1 != null) {
+            tail.next = head1;
+        } else {
+            tail.next = head2;
+        }
+
+        return head;
+    }
+
 
     public static LinkedListNode<Integer> midPoint(LinkedListNode<Integer> head) {
         //Your code goes here
@@ -23,9 +65,9 @@ public class RecursiveNodeUse {
         LinkedListNode<Integer> slow = head;
         LinkedListNode<Integer> fast = head;
 
-        while (fast.next!=null && fast.next.next!=null ) {
+        while (fast.next != null && fast.next.next != null) {
             fast = fast.next.next;
-            slow  = slow.next;
+            slow = slow.next;
         }
 
         return slow;
@@ -76,11 +118,11 @@ public class RecursiveNodeUse {
         smallAns.tail.next = head;
         head.next = null;
 
-         ans = new DoubleNode();
+        ans = new DoubleNode();
         ans.head = smallAns.head;
         ans.tail = head;
 
-        return  ans;
+        return ans;
 
 
     }

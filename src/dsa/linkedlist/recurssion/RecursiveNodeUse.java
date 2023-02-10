@@ -7,13 +7,24 @@ import dsa.linkedlist.NodeUse;
 public class RecursiveNodeUse {
 
     public static void main(String[] args) {
-        LinkedListNode<Integer> head1 = NodeUse.takeInput1();
-        LinkedListNode<Integer> head2 = NodeUse.takeInput1();
-
-
-        LinkedListNode<Integer> head = mergeTwoSortedLinkedLists(head1, head2);
+        LinkedListNode<Integer> head = NodeUse.takeInput1();
+        head = mergeSort(head);
         printRecursive(head);
 //        printReverseRecursive(head);
+    }
+
+    public static LinkedListNode<Integer> mergeSort(LinkedListNode<Integer> head) {
+        if (head == null || head.next == null) return head;
+
+        LinkedListNode<Integer> midPoint = midPoint(head);
+        LinkedListNode<Integer> h1 = head;
+        LinkedListNode<Integer> h2 = midPoint.next;
+        midPoint.next = null;
+
+        LinkedListNode<Integer> sort_1 = mergeSort(h1);
+        LinkedListNode<Integer> sort_2 = mergeSort(h2);
+
+        return mergeTwoSortedLinkedLists(sort_1,sort_2);
     }
 
     public static LinkedListNode<Integer> mergeTwoSortedLinkedLists(LinkedListNode<Integer> head1, LinkedListNode<Integer> head2) {

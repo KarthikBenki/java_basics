@@ -20,11 +20,55 @@ public class NodeUse {
         LinkedListNode<Integer> head = takeInput1();
         printLinkedList(head);
 
-        head = removeDuplicates1(head);
+        head = evenAfterOdd(head);
 
         printLinkedList(head);
 
 
+    }
+
+    public static LinkedListNode<Integer> evenAfterOdd(LinkedListNode<Integer> head) {
+        LinkedListNode<Integer> oddHead = null;
+        LinkedListNode<Integer> oddTail = null;
+        LinkedListNode<Integer> evenHead = null;
+        LinkedListNode<Integer> evenTail = null;
+        LinkedListNode<Integer> temp = head;
+
+
+        while (temp != null) {
+            if (temp.data % 2 != 0) {
+                if (oddHead == null) {
+                    oddHead = temp;
+                    oddTail = temp;
+                } else {
+                    oddTail.next = temp;
+                    oddTail = oddTail.next;
+                }
+            } else {
+                if (evenHead == null) {
+                    evenHead = temp;
+                    evenTail = temp;
+                } else {
+                    evenTail.next = temp;
+                    evenTail = evenTail.next;
+                }
+            }
+            temp = temp.next;
+        }
+
+        if (oddHead == null) {
+            return evenHead;
+        }
+        if (evenHead == null) {
+            return oddHead;
+        }
+        if (oddHead != null && evenHead != null) {
+            oddTail.next = evenHead;
+            evenTail.next = null;
+            return oddHead;
+        }
+
+        return null;
     }
 
     public static LinkedListNode<Integer> removeDuplicates1(LinkedListNode<Integer> head) {

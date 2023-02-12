@@ -20,11 +20,41 @@ public class NodeUse {
         LinkedListNode<Integer> head = takeInput1();
         printLinkedList(head);
 
-        head = evenAfterOdd(head);
+        head = skipMdeleteN(head, 2, 3);
 
         printLinkedList(head);
 
 
+    }
+
+    public static LinkedListNode<Integer> skipMdeleteN(LinkedListNode<Integer> head, int M, int N) {
+        //Your code goes here
+        if (M == 0) {
+            return null;
+        }
+
+        LinkedListNode<Integer> t1 = head;
+        LinkedListNode<Integer> t2 = head;
+
+        while (t1 != null && t2 != null) {
+            int c1 = 1, c2 = 1;
+
+            while (c1 < M && t1 != null) {
+                t1 = t1.next;
+                c1++;
+            }
+            if (t1!=null)
+            t2 = t1.next;
+            while (c2 <= N && t2 != null) {
+                t2 = t2.next;
+                c2++;
+            }
+            if (t1!=null)
+            t1.next = t2;
+            t1 = t2;
+
+        }
+        return head;
     }
 
     public static LinkedListNode<Integer> evenAfterOdd(LinkedListNode<Integer> head) {

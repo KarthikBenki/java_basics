@@ -27,6 +27,77 @@ public class NodeUse {
 
     }
 
+    public static LinkedListNode<Integer> bubbleSort(LinkedListNode<Integer> head) {
+        //Your code goes here
+        LinkedListNode<Integer> temp = head;
+        int count = 0;
+        while(temp != null)
+        {
+            count++;
+            temp = temp.next;
+        }
+        temp = head;
+        while(count > 0)
+        {
+            LinkedListNode<Integer> temp2 = head;
+            int tempc =  count - 1;
+            while(temp2.next != null && tempc != 0)
+            {
+                if(temp2.data > temp2.next.data)
+                {
+                    int tempt = temp2.data;
+                    temp2.data = temp2.next.data;
+                    temp2.next.data = tempt;
+                }
+                temp2 = temp2.next;
+            }
+            count--;
+        }
+        return head;
+    }
+
+    public static LinkedListNode<Integer> bubbleSort1(LinkedListNode<Integer> head )
+    {    if(head==null || head.next==null)
+        return head;
+        //Write your code here
+        for(int i=0;i<lengthLL(head)-1;i++){
+            LinkedListNode<Integer> prev = null;
+            LinkedListNode<Integer> curr = head;
+            LinkedListNode<Integer> next = curr.next;
+
+            while(curr.next != null){
+                if(curr.data > curr.next.data){
+                    if(prev == null){
+                        curr.next = next.next;
+                        next.next = curr;
+                        prev = next;
+                        head = prev;
+                    }else{
+                        next = curr.next;
+                        curr.next = next.next;
+                        prev.next = next;
+                        next.next = curr;
+                        prev = next;
+                    }
+                }else{
+                    prev = curr;
+                    curr = curr.next;
+                }
+            }
+        }
+        return head;
+    }
+
+
+    private static int lengthLL(LinkedListNode<Integer> head){
+        int count = 1;
+        while(head.next != null){
+            head = head.next;
+            count++;
+        }
+        return count;
+    }
+
     public static LinkedListNode<Integer> kReverse(LinkedListNode<Integer> head, int k) {
         if (head == null || head.next == null) {
             return head;

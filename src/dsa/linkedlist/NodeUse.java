@@ -27,6 +27,64 @@ public class NodeUse {
 
     }
 
+    public static LinkedListNode<Integer> kReverse(LinkedListNode<Integer> head, int k) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        if (k==0) return head;
+
+        LinkedListNode<Integer> current = head;
+        LinkedListNode<Integer> next = null;
+        LinkedListNode<Integer> prev = null;
+
+        int count = 0;
+
+        while (count < k && current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+            count++;
+        }
+
+        if (next != null) {
+            head.next = kReverse(next, k);
+        }
+
+
+        return prev;
+
+
+    }
+
+    public static LinkedListNode<Integer> swapNodes(LinkedListNode<Integer> head, int i, int j) {
+        //Your code goes here
+        LinkedListNode<Integer> t1 = head;
+        LinkedListNode<Integer> t2 = head;
+        int i1 = 0;
+        int i2 = 0;
+
+        while (i1 < i) {
+            t1 = t1.next;
+            i1++;
+        }
+
+        while (i2 < i) {
+            t2 = t2.next;
+            i2++;
+        }
+
+        swapTwoNodes(t1, t2);
+
+        return head;
+    }
+
+    private static void swapTwoNodes(LinkedListNode<Integer> t1, LinkedListNode<Integer> t2) {
+        int temp = t1.data;
+        t1.data = t2.data;
+        t2.data = temp;
+    }
+
     public static LinkedListNode<Integer> skipMdeleteN(LinkedListNode<Integer> head, int M, int N) {
         //Your code goes here
         if (M == 0) {
@@ -43,14 +101,14 @@ public class NodeUse {
                 t1 = t1.next;
                 c1++;
             }
-            if (t1!=null)
-            t2 = t1.next;
+            if (t1 != null)
+                t2 = t1.next;
             while (c2 <= N && t2 != null) {
                 t2 = t2.next;
                 c2++;
             }
-            if (t1!=null)
-            t1.next = t2;
+            if (t1 != null)
+                t1.next = t2;
             t1 = t2;
 
         }

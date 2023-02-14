@@ -25,10 +25,9 @@ public class StackUsingArray {
         this.data[topIndex] = data;
     }
 
-    public void pop() throws StackEmptyException {
+    public int pop() throws StackEmptyException {
         if (topIndex > -1) {
-            this.data[topIndex] = 0;
-            topIndex--;
+         return  this.data[topIndex--];
         } else
             throw new StackEmptyException("Stack is empty to pop");
     }

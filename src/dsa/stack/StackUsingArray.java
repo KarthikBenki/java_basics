@@ -10,6 +10,11 @@ public class StackUsingArray {
         this.topIndex = -1;
     }
 
+    public StackUsingArray(int size) {
+        this.data = new int[size];
+        this.topIndex = -1;
+    }
+
     public void push(int data) throws StackFullException {
         topIndex++;
 //        if (stackIndex>=this.data.length){

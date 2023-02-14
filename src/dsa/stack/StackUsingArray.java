@@ -25,18 +25,18 @@ public class StackUsingArray {
         this.data[topIndex] = data;
     }
 
-    public void pop() {
+    public void pop() throws StackEmptyException {
         if (topIndex > -1) {
             this.data[topIndex] = 0;
             topIndex--;
         } else
-            throw new RuntimeException("No element present in stack to pop");
+            throw new StackEmptyException("Stack is empty to pop");
     }
 
-    public int top() {
+    public int top() throws StackEmptyException {
         if (topIndex > -1)
             return this.data[topIndex];
-        return -1;
+        throw new StackEmptyException("StackUsingArray is Empty");
     }
 
     public boolean isEmpty() {

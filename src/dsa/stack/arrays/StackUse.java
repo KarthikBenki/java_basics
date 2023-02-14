@@ -1,4 +1,4 @@
-package dsa.stack;
+package dsa.stack.arrays;
 
 public class StackUse {
     public static void main(String[] args) throws StackFullException, StackEmptyException {

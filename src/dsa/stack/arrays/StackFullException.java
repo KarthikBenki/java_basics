@@ -1,4 +1,4 @@
-package dsa.stack;
+package dsa.stack.arrays;
 
 public class StackFullException extends Exception {
 

@@ -17,17 +17,22 @@ public class StackUsingArray {
 
     public void push(int data) throws StackFullException {
         topIndex++;
-//        if (stackIndex>=this.data.length){
-//            int temp[] = this.data;
-//            this.data = new int[temp.length*2];
-//            for (int i = 0; i < temp.length; i++) {
-//                this.data[i] = temp[i];
-//            }
-//         }
-        if (topIndex >= this.data.length) {
-            throw new StackFullException("StackUsing array is full");
+        if (topIndex>=this.data.length){
+            doubleCapacity();
         }
+//        if (topIndex >= this.data.length) {
+//            throw new StackFullException("StackUsing array is full");
+//        }
         this.data[topIndex] = data;
+    }
+
+    private void doubleCapacity() {
+        System.out.println("Double the capacity");
+        int temp[] = this.data;
+        this.data = new int[temp.length*2];
+        for (int i = 0; i < temp.length; i++) {
+            this.data[i] = temp[i];
+        }
     }
 
     public int pop() throws StackEmptyException {

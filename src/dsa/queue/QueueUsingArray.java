@@ -33,7 +33,7 @@ public class QueueUsingArray {
         return data[front];
     }
 
-    public void enqueue(int ele) throws QueueFullException {
+    public void enqueue(int ele)  {
         if (size == data.length) {
             doubleCapacity();
         }

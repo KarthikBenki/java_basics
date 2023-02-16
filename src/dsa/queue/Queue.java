@@ -61,5 +61,10 @@ public class Queue {
         //Implement the front() function
         return front.data;
     }
+
+    public int rear(){
+        if (size == 0) return -1;
+        return rear.data;
+    }
 }
 

@@ -4,13 +4,7 @@ import java.util.Scanner;
 
 public class BinaryTreeUse {
     public static void main(String[] args) {
-        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(1);
-        BinaryTreeNode<Integer> rootLeft = new BinaryTreeNode<>(2);
-        BinaryTreeNode<Integer> rootRight = new BinaryTreeNode<>(3);
-        root.left = rootLeft;
-        root.right = rootRight;
-        root.left.right = new BinaryTreeNode<>(4);
-        root.right.left = new BinaryTreeNode<>(5);
+        BinaryTreeNode<Integer> root = createTree();
         printBinaryTreeDetailed(root);
     }
 

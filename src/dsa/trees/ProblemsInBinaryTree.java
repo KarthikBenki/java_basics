@@ -12,6 +12,15 @@ public class ProblemsInBinaryTree {
         int numberOfLeafNodes = numberOfLeafNodes(root);
         System.out.println("Number of leaf nodes are " + numberOfLeafNodes);
 
+        printNodesAtDepthK(root,2);
+
+    }
+
+    private static void printNodesAtDepthK(BinaryTreeNode<Integer> root, int k) {
+      if (root == null) return;
+      if (k == 0) System.out.println(root.data);
+      printNodesAtDepthK(root.left,k-1);
+      printNodesAtDepthK(root.right,k-1);
     }
 
     private static int numberOfLeafNodes(BinaryTreeNode<Integer> root) {

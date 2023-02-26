@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BinaryTreeUse {
     public static void main(String[] args) {
-        BinaryTreeNode<Integer> root = createTree();
+        BinaryTreeNode<Integer> root = createTreeBetter(true,0,true);
         printBinaryTreeDetailed(root);
     }
 
@@ -39,6 +39,28 @@ public class BinaryTreeUse {
         BinaryTreeNode<Integer> root = new BinaryTreeNode<>(data);
         root.left = createTree();
         root.right = createTree();
+
+        return root;
+    }
+
+    private static BinaryTreeNode<Integer> createTreeBetter(boolean isRoot,int parentData,boolean isLeft) {
+        if (isRoot)  {
+            System.out.println("Enter root data");
+        }else {
+            if (isLeft){
+                System.out.println("Enter left child of "+parentData);
+            }else {
+                System.out.println("Enter right child of "+parentData);
+            }
+        }
+        Scanner sc = new Scanner(System.in);
+
+        int data = sc.nextInt();
+        if (data == -1) return null;
+
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(data);
+        root.left = createTreeBetter(false,root.data,true);
+        root.right = createTreeBetter(false,root.data,false);
 
         return root;
     }

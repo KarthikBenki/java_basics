@@ -3,15 +3,18 @@ package dsa.trees;
 public class ProblemsInBinaryTree {
     public static void main(String[] args) {
         BinaryTreeNode<Integer> root = BinaryTreeUse.createTreeBetter(true, 0, true);
-        printPreOrder(root);
-        System.out.println();
-        printInOrder(root);
-        System.out.println();
-        printPostOrder(root);
-        System.out.println();
+        int largest = largestOfAllNodes(root);
+        System.out.println(largest);
     }
 
-    static int count = 0;
+    private static int largestOfAllNodes(BinaryTreeNode<Integer> root) {
+        if (root == null) return -1;
+        int leftLarge = largestOfAllNodes(root.left);
+        int rightLarge = largestOfAllNodes(root.right);
+
+        return Math.max(leftLarge,Math.max(rightLarge,root.data));
+    }
+
 
     public static int numberOfNodesInATree(BinaryTreeNode<Integer> root) {
         if (root == null) return 0;

@@ -8,7 +8,7 @@ public class BinaryTreeUse {
         printBinaryTreeDetailed(root);
     }
 
-    private static void printBinaryTree(BinaryTreeNode<Integer> root) {
+    public static void printBinaryTree(BinaryTreeNode<Integer> root) {
         if (root == null) return;
 
         System.out.print(root.data + " ");
@@ -16,7 +16,7 @@ public class BinaryTreeUse {
         printBinaryTree(root.right);
     }
 
-    private static void printBinaryTreeDetailed(BinaryTreeNode<Integer> root) {
+    public static void printBinaryTreeDetailed(BinaryTreeNode<Integer> root) {
         if (root == null) return;
 
         System.out.print(root.data + ": ");
@@ -30,7 +30,7 @@ public class BinaryTreeUse {
     }
 
 
-    private static BinaryTreeNode<Integer> createTree() {
+    public static BinaryTreeNode<Integer> createTree() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter root data");
         int data = sc.nextInt();
@@ -43,7 +43,7 @@ public class BinaryTreeUse {
         return root;
     }
 
-    private static BinaryTreeNode<Integer> createTreeBetter(boolean isRoot,int parentData,boolean isLeft) {
+    public static BinaryTreeNode<Integer> createTreeBetter(boolean isRoot,int parentData,boolean isLeft) {
         if (isRoot)  {
             System.out.println("Enter root data");
         }else {

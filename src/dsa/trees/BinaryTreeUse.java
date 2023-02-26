@@ -32,6 +32,7 @@ public class BinaryTreeUse {
 
     private static BinaryTreeNode<Integer> createTree() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Enter root data");
         int data = sc.nextInt();
         if (data == -1) return null;
 

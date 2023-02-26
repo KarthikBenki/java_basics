@@ -5,16 +5,31 @@ import com.sun.source.tree.BreakTree;
 public class ProblemsInBinaryTree {
     public static void main(String[] args) {
         BinaryTreeNode<Integer> root = BinaryTreeUse.createTreeBetter(true, 0, true);
-       int heightOfTree = heightOfTree(root);
+        int heightOfTree = heightOfTree(root);
         System.out.println(heightOfTree);
+        printInOrder(root);
+
+        int numberOfLeafNodes = numberOfLeafNodes(root);
+        System.out.println("Number of leaf nodes are " + numberOfLeafNodes);
+
+    }
+
+    private static int numberOfLeafNodes(BinaryTreeNode<Integer> root) {
+        if (root == null) return 0;
+        if (root.left == null && root.right == null) return 1;
+
+        var left = numberOfLeafNodes(root.left);
+        var right = numberOfLeafNodes(root.right);
+
+        return left + right;
     }
 
     private static int heightOfTree(BinaryTreeNode<Integer> root) {
-        if (root == null) return  0;
+        if (root == null) return 0;
         int leftHeight = heightOfTree(root.left);
         int rightHeight = heightOfTree(root.right);
 
-        return Math.max(leftHeight,rightHeight)+1;
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 
     private static int largestOfAllNodes(BinaryTreeNode<Integer> root) {
@@ -22,7 +37,7 @@ public class ProblemsInBinaryTree {
         int leftLarge = largestOfAllNodes(root.left);
         int rightLarge = largestOfAllNodes(root.right);
 
-        return Math.max(leftLarge,Math.max(rightLarge,root.data));
+        return Math.max(leftLarge, Math.max(rightLarge, root.data));
     }
 
 

@@ -1,10 +1,20 @@
 package dsa.trees;
 
+import com.sun.source.tree.BreakTree;
+
 public class ProblemsInBinaryTree {
     public static void main(String[] args) {
         BinaryTreeNode<Integer> root = BinaryTreeUse.createTreeBetter(true, 0, true);
-        int largest = largestOfAllNodes(root);
-        System.out.println(largest);
+       int heightOfTree = heightOfTree(root);
+        System.out.println(heightOfTree);
+    }
+
+    private static int heightOfTree(BinaryTreeNode<Integer> root) {
+        if (root == null) return  0;
+        int leftHeight = heightOfTree(root.left);
+        int rightHeight = heightOfTree(root.right);
+
+        return Math.max(leftHeight,rightHeight)+1;
     }
 
     private static int largestOfAllNodes(BinaryTreeNode<Integer> root) {

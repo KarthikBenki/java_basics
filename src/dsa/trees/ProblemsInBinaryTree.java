@@ -5,15 +5,10 @@ import com.sun.source.tree.BreakTree;
 public class ProblemsInBinaryTree {
     public static void main(String[] args) {
         BinaryTreeNode<Integer> root = BinaryTreeUse.createTreeBetter(true, 0, true);
-        int heightOfTree = heightOfTree(root);
-        System.out.println(heightOfTree);
-        printInOrder(root);
-
-        int numberOfLeafNodes = numberOfLeafNodes(root);
-        System.out.println("Number of leaf nodes are " + numberOfLeafNodes);
-
-        printNodesAtDepthK(root,2);
-
+        BinaryTreeUse.printBinaryTreeDetailed(root);
+        System.out.println();
+         root = removeLeafNodeOfTree(root);
+        BinaryTreeUse.printBinaryTreeDetailed(root);
     }
 
     private static void printNodesAtDepthK(BinaryTreeNode<Integer> root, int k) {
@@ -94,6 +89,21 @@ public class ProblemsInBinaryTree {
         if (root.right != null)
             System.out.print("R" + root.right.data + " ");
         System.out.println();
+    }
+
+    public static BinaryTreeNode<Integer> removeLeafNodeOfTree(BinaryTreeNode<Integer> root){
+
+        if (root == null) return null;
+
+        if (root.left == null && root.right == null){
+            return null;
+        }
+
+      root.left =   removeLeafNodeOfTree(root.left);
+     root.right =    removeLeafNodeOfTree(root.right);
+
+     return root;
+
     }
 
 
